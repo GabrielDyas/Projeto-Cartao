@@ -1,4 +1,4 @@
-package Instituição.States;
+package instituição.States;
 
 public class Analisando extends AbstractState {
     @Override 

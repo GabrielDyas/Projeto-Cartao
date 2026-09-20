@@ -1,14 +1,14 @@
-package Instituição;
-import Objetos.Compra;
-import java.util.List;
+package instituição;
+import Objetos.Produto;
+import instituição.States.AbstractState;
+import instituição.States.OciosoState;
 
-import Instituição.States.AbstractState;
-import Instituição.States.OciosoState;
+import java.util.List;
 
 public class Instituicao {
     private String nome;
     private AbstractState state;
-    private List<Compra> listaDeAprovacao;
+    private List<Produto> listaDeAprovacao;
 
     public Instituicao(String nome) {
         this.nome = nome;

@@ -1,4 +1,4 @@
-package Instituição.States;
+package instituição.States;
 
 public class OciosoState extends AbstractState {
     @Override 
