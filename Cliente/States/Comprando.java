@@ -1,6 +1,6 @@
-package cliente.States;
+package Cliente.States;
 
-public class Comprando extends AbstractState {
+public class Comprando extends cliente.States.AbstractState {
     @Override 
     public void enter() {
         // Lógica de entrada no estado Comprando
