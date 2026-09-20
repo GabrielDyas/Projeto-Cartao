@@ -21,4 +21,8 @@ public class Cliente {
             currentState.enter(); // Executa a lógica de entrada do novo estado
         }
     }
+
+    public void execute() {
+        System.out.println("Executando o estado");
+    }
 }

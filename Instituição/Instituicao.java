@@ -1,7 +1,6 @@
 package instituição;
 import Objetos.Produto;
-import instituição.States.AbstractState;
-import instituição.States.OciosoState;
+import instituição.States.*;
 
 import java.util.List;
 

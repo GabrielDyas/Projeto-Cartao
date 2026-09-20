@@ -3,18 +3,20 @@ import Objetos.State;
 
 public abstract class AbstractState implements State {
     @Override
-    public void enter() {
-        // Implementação padrão opcional
-
+    public void enter()
+    {
+        System.out.println("Cliente entrou em um estado.");
     }
 
     @Override
-    public void execute() {
-        // Implementação padrão opcional
+    public void execute()
+    {
+        System.out.println("Cliente executou um estado.");
     }
 
     @Override
-    public void leave() {
-        // Implementação padrão opcional
+    public void leave()
+    {
+        System.out.println("Cliente saiu em um estado.");
     }
 }
