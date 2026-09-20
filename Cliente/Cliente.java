@@ -1,8 +1,7 @@
 package cliente;
 import Objetos.Cartao;
 import Objetos.State;
-import cliente.States.Passeando;
-import cliente.States.Comprando;
+import cliente.States.*;
 
 public class Cliente {
     public State currentState;
