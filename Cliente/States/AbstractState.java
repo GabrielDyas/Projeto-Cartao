@@ -1,12 +1,18 @@
 package cliente.States;
+
 import Objetos.State;
+import cliente.Cliente;
 
 public abstract class AbstractState implements State {
-    @Override
-    public void enter()
-    {
-        System.out.println("Cliente entrou em um estado.");
+
+    protected Cliente cliente;
+
+    public AbstractState(Cliente cliente) {
+        this.cliente = cliente;
     }
+
+    @Override
+    public void enter() { System.out.println("Cliente entrou em um estado."); }
 
     @Override
     public void execute()

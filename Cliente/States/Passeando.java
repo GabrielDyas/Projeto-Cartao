@@ -1,5 +1,12 @@
 package cliente.States;
+
+import cliente.Cliente;
+
 public class Passeando extends AbstractState {
+
+    public Passeando(Cliente cliente) {
+        super(cliente);
+    }
 
     @Override 
     public void enter()

@@ -1,10 +1,24 @@
 package Objetos;
 
 public class Produto {
-    // Atributos da classe Compra
-    public String nome;
-    public double valor;
-    //public date dataCompra;
 
+    private String tipo;
+    private double preco;
+    //private time data;
 
+    public Produto(String tipo, double preco) {
+        this.tipo = tipo;
+        this.preco = preco;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+    /*public time getData(){
+        aqui insere lógica de data
+    }*/
 }

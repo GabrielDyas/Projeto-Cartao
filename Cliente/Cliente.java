@@ -1,28 +1,49 @@
 package cliente;
-import Objetos.Cartao;
-import Objetos.State;
+
+import Objetos.*;
 import cliente.States.*;
 
 public class Cliente {
-    public State currentState;
-    public Cartao cartao; 
+
+    private State currentState;
+    private Cartao cartao;
 
     public Cliente() {
         this.cartao = new Cartao(new Objetos.Limites());
-        this.setState(new  Passeando());
+
+        setState(new Passeando(this));
     }
 
     public void setState(State newState) {
+
         if (currentState != null) {
-            currentState.leave(); // Executa a lógica de saída do estado atual
+            currentState.leave();
         }
-        this.currentState = newState;
+
+        currentState = newState;
+
         if (currentState != null) {
-            currentState.enter(); // Executa a lógica de entrada do novo estado
+            currentState.enter();
         }
     }
 
     public void execute() {
-        System.out.println("Executando o estado");
+
+        if (currentState != null) {
+            currentState.execute();
+        }
+    }
+
+    public Produto comprar(String tipo, double preco) {
+
+        Comprando estadoComprando = new Comprando(this);
+
+        setState(estadoComprando);
+
+        Produto produto = estadoComprando.criarProduto(tipo, preco);
+
+        estadoComprando.execute();
+
+        return produto;
     }
 }
