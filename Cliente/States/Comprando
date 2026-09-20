@@ -1,0 +1,22 @@
+package Cliente.States;
+
+public class Comprando extends AbstractState {
+
+    @Override 
+    public void enter() {
+        // Lógica de entrada no estado Comprando
+
+    }
+
+    @Override
+    public void execute() {
+        // Lógica de execução do estado Comprando
+
+    }
+    
+    @Override
+    public void leave() {
+        // Lógica de saída do estado Comprando
+
+    }
+}
