@@ -1,9 +1,11 @@
-package Cliente.States;
+package cliente.States;
+import Objetos.State;
 
 public abstract class AbstractState implements State {
     @Override
     public void enter() {
         // Implementação padrão opcional
+
     }
 
     @Override
