@@ -1,21 +1,25 @@
-package cliente.States;
+package Cliente.States;
+
+import Cliente.Cliente;
+
 public class Passeando extends AbstractState {
 
-    @Override 
+    public Passeando(Cliente context) {
+        super(context);
+    }
+
+    @Override
     public void enter() {
-        // Lógica de entrada no estado Passeando
-        System.out.println("Entrando no estado Passeando");
+        System.out.println(context.getNome() + " começou a passear.");
     }
 
     @Override
     public void execute() {
-        //Lógica de execução do estado Passeando
-        System.out.println("Executando o estado Passeando");
+        System.out.println(context.getNome() + " está passeando.");
     }
-    
+
     @Override
     public void leave() {
-        // Lógica de saída do estado Passeando
-        System.out.println("Saindo do estado Passeando");
+        System.out.println(context.getNome() + " saiu do estado Passeando.");
     }
 }

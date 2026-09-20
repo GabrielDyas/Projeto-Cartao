@@ -1,20 +1,27 @@
 package Cliente.States;
-import Objetos.State;
+
+import Cliente.Cliente;
 
 public abstract class AbstractState implements State {
+
+    protected Cliente context;
+
+    public AbstractState(Cliente context) {
+        this.context = context;
+    }
+
     @Override
     public void enter() {
-        // Implementação padrão opcional
-
+        // comportamento padrão
     }
 
     @Override
     public void execute() {
-        // Implementação padrão opcional
+        // comportamento padrão
     }
 
     @Override
     public void leave() {
-        // Implementação padrão opcional
+        // comportamento padrão
     }
 }

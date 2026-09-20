@@ -1,25 +1,65 @@
-package cliente;
+package Cliente;
+
+import Cliente.States.Passeando;
+import Cliente.States.Comprando;
 import Objetos.Cartao;
-import Objetos.State;
-import cliente.States.Passeando;
-import cliente.States.Comprando;
+import Objetos.Compra;
 
 public class Cliente {
-    public State currentState;
-    public Cartao cartao; 
 
-    public Cliente() {
-        this.cartao = new Cartao(new Objetos.Limites());
-        this.setState(new  Passeando());
+    private String nome;
+    private State state;
+
+    private Cartao cartao;
+    private Compra compraAtual;
+
+    public Cliente(String nome, Cartao cartao) {
+        this.nome = nome;
+        this.cartao = cartao;
+
+        this.state = new Passeando(this);
+        this.state.enter();
     }
 
-    public void setState(State newState) {
-        if (currentState != null) {
-            currentState.leave(); // Executa a lógica de saída do estado atual
+    public String getNome() {
+        return nome;
+    }
+
+    public Cartao getCartao() {
+        return cartao;
+    }
+
+    public Compra getCompraAtual() {
+        return compraAtual;
+    }
+
+    public void comprar(String produto, double valor) {
+
+        compraAtual = new Compra(produto, valor);
+
+        setState(new Cliente.States.Comprando(this));
+
+        execute();
+    }
+
+    public void passear() {
+        setState(new Passeando(this));
+
+        execute();
+    }
+
+    public void setState(State state) {
+
+        if (this.state != null) {
+            this.state.leave();
         }
-        this.currentState = newState;
-        if (currentState != null) {
-            currentState.enter(); // Executa a lógica de entrada do novo estado
-        }
+
+        this.state = state;
+
+        this.state.enter();
+    }
+
+    public void execute() {
+        state.execute();
     }
 }

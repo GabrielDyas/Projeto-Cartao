@@ -1,22 +1,30 @@
 package Cliente.States;
 
-public class Comprando extends cliente.States.AbstractState {
-    @Override 
+import Cliente.Cliente;
+
+public class Comprando extends AbstractState {
+
+    public Comprando(Cliente context) {
+        super(context);
+    }
+
+    @Override
     public void enter() {
-        // Lógica de entrada no estado Comprando
-        System.out.println("Entrando no estado Comprando");
+        System.out.println(context.getNome() + " começou uma compra.");
     }
 
     @Override
     public void execute() {
-        // Lógica de execução do estado Comprando
-        System.out.println("Executando o estado Comprando");
+        System.out.println(
+                "Comprando: " +
+                        context.getCompraAtual().getProduto() +
+                        " - R$ " +
+                        context.getCompraAtual().getValor()
+        );
     }
 
     @Override
     public void leave() {
-        // Lógica de saída do estado Comprando
-        System.out.println("Saindo do estado Comprando");
+        System.out.println(context.getNome() + " saiu do estado Comprando.");
     }
-    
 }
