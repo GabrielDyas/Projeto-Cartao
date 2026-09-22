@@ -8,7 +8,7 @@ import java.util.List;
 public class Instituicao {
     private String nome;
     private AbstractState state;
-    private List<Produto> listaDeAprovacao;
+    private Produto AnaliseCompra;
 
     public Instituicao(String nome) {
         this.nome = nome;
