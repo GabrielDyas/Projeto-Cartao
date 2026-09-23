@@ -1,14 +1,15 @@
 package instituição.States;
 
+
 public class Analisando extends AbstractState {
     @Override 
     public void enter() {
-        // Lógica de entrada no estado de análise
+        
     }
 
     @Override
     public void execute() {
-        // Lógica de análise da solicitação
+        
 
     }
 
