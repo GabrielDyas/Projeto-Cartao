@@ -1,15 +1,15 @@
 package Objetos;
 
 public class Cartao {
-    private Limites limites;
+    public Limites limites;
 
     public Cartao(Limites limites) {
         this.limites = limites;
     }
-
-    
-
-
-
-
+       
+    public float getLimite(){
+        float limiti = 0;
+        limiti = limites.LimiteDisponivel;
+        return limiti;
+    }
 }
