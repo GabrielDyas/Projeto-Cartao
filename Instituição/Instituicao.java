@@ -3,20 +3,13 @@ import Objetos.Produto;
 import instituição.States.AbstractState;
 import instituição.States.OciosoState;
 
-import java.util.List;
-
 public class Instituicao {
-    private String nome;
     private AbstractState state;
     private Produto AnaliseCompra;
 
     public Instituicao(String nome) {
-        this.nome = nome;
-        this.state = new OciosoState(); // Estado inicial
-    }
 
-    public String getNome() {
-        return nome;
+        this.state = new OciosoState(); // Estado inicial
     }
 
     public void setState(AbstractState state) {
