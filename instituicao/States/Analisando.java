@@ -1,10 +1,10 @@
 package instituicao.States;
-
+import cliente.Cliente;
 
 public class Analisando extends AbstractState {
     @Override 
     public void enter() {
-    
+        //context.AnaliseCompra = context.infoCliente(cliente)
     }
 
     @Override

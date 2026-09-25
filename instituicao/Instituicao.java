@@ -1,21 +1,21 @@
 package instituicao;
-import Objetos.Produto;
-import instituicao.States.AbstractState;
-import instituicao.States.OciosoState;
+import cliente.Cliente;
+import Objetos.*;
+import instituicao.States.*;
 
 public class Instituicao {
     private AbstractState state;
-    private Produto AnaliseCompra;
+    public Produto AnaliseCompra;
 
     public Instituicao(String nome) {
 
-        this.state = new OciosoState(); // Estado inicial
+        this.state = new OciosoState(); 
     }
 
     public void setState(AbstractState state) {
-        this.state.leave(); // Execut   a ações ao sair do estado atual
+        this.state.leave(); 
         this.state = state;
-        this.state.enter(); // Executa ações ao entrar no novo estado
+        this.state.enter(); 
     }
 
     public void execute() {
@@ -26,7 +26,11 @@ public class Instituicao {
         
     }
 
-    public Produto getAnaliseCompra() {
+    public Cliente infoCliente(Cliente cliente){
+        return cliente;
+    }
+
+    public Produto getAnaliseCompra(){
         return AnaliseCompra;
     }
     
