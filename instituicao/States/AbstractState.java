@@ -1,6 +1,6 @@
-package instituição.States;
+package instituicao.States;
 import Objetos.State;
-import instituição.Instituicao;
+import instituicao.Instituicao;
 
 public abstract class AbstractState implements State {
     protected Instituicao context;

@@ -1,10 +1,10 @@
-package instituição.States;
+package instituicao.States;
 
 
 public class Analisando extends AbstractState {
     @Override 
     public void enter() {
-        
+    
     }
 
     @Override

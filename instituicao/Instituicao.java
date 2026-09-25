@@ -1,7 +1,7 @@
-package instituição;
+package instituicao;
 import Objetos.Produto;
-import instituição.States.AbstractState;
-import instituição.States.OciosoState;
+import instituicao.States.AbstractState;
+import instituicao.States.OciosoState;
 
 public class Instituicao {
     private AbstractState state;
@@ -21,4 +21,13 @@ public class Instituicao {
     public void execute() {
         state.execute();
     }
+
+    public void avance(){
+        
+    }
+
+    public Produto getAnaliseCompra() {
+        return AnaliseCompra;
+    }
+    
 }
