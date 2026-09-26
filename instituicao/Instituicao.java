@@ -6,10 +6,12 @@ import instituicao.States.*;
 public class Instituicao {
     private AbstractState state;
     public Produto AnaliseCompra;
+    public Cliente cliente;
 
-    public Instituicao(String nome) {
+    public Instituicao(String nome, Cliente cliente) {
 
         this.state = new OciosoState(); 
+        this.cliente = cliente;
     }
 
     public void setState(AbstractState state) {
@@ -18,20 +20,12 @@ public class Instituicao {
         this.state.enter(); 
     }
 
-    public void execute() {
-        state.execute();
-    }
-
-    public void avance(){
-        
-    }
-
-    public Cliente infoCliente(Cliente cliente){
-        return cliente;
-    }
-
     public Produto getAnaliseCompra(){
         return AnaliseCompra;
     }
-    
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
 }

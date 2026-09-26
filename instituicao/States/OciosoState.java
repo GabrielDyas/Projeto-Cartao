@@ -3,7 +3,7 @@ package instituicao.States;
 public class OciosoState extends AbstractState {
     @Override 
     public void enter() {
-       System.out.println(".");
+       System.out.println("Sem solicitações pendentes.");
     }
 
     @Override
