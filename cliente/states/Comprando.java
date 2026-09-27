@@ -2,6 +2,7 @@ package cliente.states;
 
 import Objetos.Produto;
 import cliente.Cliente;
+// Importações necessárias para ler o arquivo produtos.txt
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -17,13 +18,14 @@ public class Comprando extends AbstractState {
         super(cliente);
     }
 
+    // Entender o que tá acontecendo
     public Produto criarProduto() {
         List<Produto> produtos = new ArrayList<>();
         List<String> linhas;
         try {
-            linhas = Files.readAllLines(Paths.get("cliente", "produtos.txt"), StandardCharsets.UTF_8);
+            linhas = Files.readAllLines(Paths.get("produtos.txt"), StandardCharsets.UTF_8);
         } catch (IOException e) {
-            throw new IllegalStateException("Não foi possível ler o arquivo cliente/produtos.txt.", e);
+            throw new IllegalStateException("Não foi possível ler o arquivo produtos.txt.", e);
         }
 
         for (int i = 0; i < linhas.size(); i++) {
@@ -34,7 +36,7 @@ public class Comprando extends AbstractState {
 
             int separador = linha.lastIndexOf(',');
             if (separador < 1 || separador == linha.length() - 1) {
-                throw new IllegalStateException("Formato inválido em cliente/produtos.txt, linha " + (i + 1) + ".");
+                throw new IllegalStateException("Formato inválido em produtos.txt, linha " + (i + 1) + ".");
             }
 
             String nome = linha.substring(0, separador).trim();
@@ -42,12 +44,12 @@ public class Comprando extends AbstractState {
             try {
                 produtos.add(new Produto(nome, Double.parseDouble(valorTexto)));
             } catch (NumberFormatException e) {
-                throw new IllegalStateException("Preço inválido em cliente/produtos.txt, linha " + (i + 1) + ".", e);
+                throw new IllegalStateException("Preço inválido em produtos.txt, linha " + (i + 1) + ".", e);
             }
         }
 
         if (produtos.isEmpty()) {
-            throw new IllegalStateException("O arquivo cliente/produtos.txt não contém produtos.");
+            throw new IllegalStateException("O arquivo produtos.txt não contém produtos.");
         }
 
         produto = produtos.get(ThreadLocalRandom.current().nextInt(produtos.size()));

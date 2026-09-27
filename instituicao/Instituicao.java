@@ -1,7 +1,7 @@
 package instituicao;
 import cliente.Cliente;
-import Objetos.*;
 import instituicao.States.*;
+import Objetos.*;
 
 public class Instituicao {
     private AbstractState state;
