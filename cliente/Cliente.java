@@ -29,10 +29,10 @@ public class Cliente {
         }
     }
 
-    public Produto comprar(String tipo, double preco) {
+    public Produto comprar() {
         Comprando estadoComprando = new Comprando(this);
         setState(estadoComprando);
-        Produto produto = estadoComprando.criarProduto(tipo, preco);
+        Produto produto = estadoComprando.criarProduto();
         estadoComprando.execute();
         return produto;
     }
