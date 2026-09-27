@@ -1,4 +1,4 @@
-package cliente.States;
+package cliente.states;
 
 public class Comprando extends AbstractState {
     @Override 

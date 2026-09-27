@@ -1,4 +1,4 @@
-package cliente.States;
+package cliente.states;
 import Objetos.State;
 
 public abstract class AbstractState implements State {

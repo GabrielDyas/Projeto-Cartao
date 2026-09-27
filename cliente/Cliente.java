@@ -1,7 +1,7 @@
 package cliente;
 import Objetos.Cartao;
 import Objetos.State;
-import cliente.States.*;
+import cliente.states.*;
 
 public class Cliente {
     public State currentState;

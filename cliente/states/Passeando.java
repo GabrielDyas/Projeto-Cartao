@@ -1,4 +1,4 @@
-package cliente.States;
+package cliente.states;
 public class Passeando extends AbstractState {
 
     @Override 
