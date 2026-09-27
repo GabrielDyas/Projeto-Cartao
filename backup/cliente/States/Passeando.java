@@ -1,4 +1,4 @@
-package cliente.states;
+package cliente.States;
 
 import cliente.Cliente;
 
@@ -9,20 +9,23 @@ public class Passeando extends AbstractState {
     }
 
     @Override 
-    public void enter() {
+    public void enter()
+    {
         // Lógica de entrada no estado Passeando
-        System.out.println("Cliente está entrando no estado passeando");
+        System.out.println("Entrando no estado Passeando.");
     }
 
     @Override
-    public void execute() {
+    public void execute()
+    {
         //Lógica de execução do estado Passeando
-        System.out.println("Cliente está passeando");
+        System.out.println("Executando o estado Passeando.");
     }
     
     @Override
-    public void leave() {
+    public void leave()
+    {
         // Lógica de saída do estado Passeando
-        System.out.println("Cliente não está mais passeando");
+        System.out.println("Saindo do estado Passeando.");
     }
 }

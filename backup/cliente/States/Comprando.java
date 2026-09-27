@@ -1,9 +1,10 @@
-package cliente.states;
+package cliente.States;
 
-import Objetos.Produto;
 import cliente.Cliente;
+import Objetos.Produto;
 
 public class Comprando extends AbstractState {
+
     private Produto produto;
 
     public Comprando(Cliente cliente) {
@@ -11,7 +12,9 @@ public class Comprando extends AbstractState {
     }
 
     public Produto criarProduto(String tipo, double preco) {
+
         produto = new Produto(tipo, preco);
+
         return produto;
     }
 
@@ -19,22 +22,18 @@ public class Comprando extends AbstractState {
         return produto;
     }
 
-    @Override 
+    @Override
     public void enter() {
-        // Lógica de entrada no estado Comprando
-        System.out.println("Entrando no estado Comprando");
+        System.out.println("Cliente entrou no estado Comprando.");
     }
 
     @Override
     public void execute() {
-        // Lógica de execução do estado Comprando
-        System.out.println("Executando o estado Comprando");
+        System.out.println("Cliente está comprando.");
     }
 
     @Override
     public void leave() {
-        // Lógica de saída do estado Comprando
-        System.out.println("Saindo do estado Comprando");
+        System.out.println("Cliente saiu do estado Comprando.");
     }
-    
 }
