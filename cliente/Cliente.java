@@ -1,4 +1,6 @@
 package cliente;
+import java.util.concurrent.ThreadLocalRandom;
+
 import Objetos.Cartao;
 import Objetos.Produto;
 import Objetos.State;
@@ -12,6 +14,24 @@ public class Cliente {
         this.cartao = new Cartao(new Objetos.Limites());
         this.setState(new Passeando(this));
     }
+
+    public void atualizarEstado() {
+    if (currentState instanceof Passeando) {
+        boolean vaiComprarbool = ThreadLocalRandom.current().nextBoolean();
+
+        if (vaiComprarbool) {
+            Produto produto = comprar();
+            System.out.printf("Cliente comprou: %s - R$ %.2f%n",
+                    produto.nome, produto.valor);
+        } else {
+            execute();
+        }
+
+        return;
+    }
+
+    execute();
+}
 
     public void setState(State newState) {
         if (currentState != null) {

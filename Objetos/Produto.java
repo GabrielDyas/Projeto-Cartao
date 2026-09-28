@@ -19,7 +19,7 @@ public class Produto {
         List<Produto> produtos = new ArrayList<>();
         List<String> linhas;
         try {
-            linhas = Files.readAllLines(Paths.get("produtos.txt"), StandardCharsets.UTF_8);
+            linhas = Files.readAllLines(Paths.get("Objetos","produtos.txt"), StandardCharsets.UTF_8); // aqui colocar o nome das pastas  para acessar produtos.txt
         } catch (IOException e) {
             throw new IllegalStateException("Não foi possível ler o arquivo produtos.txt.", e);
         }
