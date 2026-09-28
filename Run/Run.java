@@ -14,12 +14,12 @@ public class Run {
         Cliente cliente = new Cliente();
         System.out.println("\nSimulação do cliente");
         for (int i = 1; i <= 10; i++) {
-            System.out.printf("Ciclo %d - estado atual: %s%n",
-                    i, cliente.getCurrentState().getClass().getSimpleName());
+            System.out.printf("Ciclo %d - estado atual: %s%n", i, cliente.getCurrentState().getClass().getSimpleName());
             Produto produtoComprado = cliente.execute();
             if (produtoComprado != null) {
-                System.out.printf("Compra realizada: %s - R$ %.2f%n",
-                        produtoComprado.nome, produtoComprado.valor);
+                System.out.printf("Compra realizada: %s - R$ %.2f%n", produtoComprado.nome, produtoComprado.valor);
+            } else {
+                System.out.println("Nenhuma compra neste ciclo.");
             }
         }
     }

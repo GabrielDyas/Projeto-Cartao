@@ -1,34 +1,36 @@
 package cliente;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 import Objetos.Cartao;
 import Objetos.Produto;
 import Objetos.State;
-import cliente.states.*;
+import cliente.states.Comprando;
+import cliente.states.Passeando;
 
 public class Cliente {
     private State currentState;
     public Cartao cartao;
 
     public Cliente() {
-        this.cartao = new Cartao(new Objetos.Limites());
-        this.setState(new Passeando(this));
+        cartao = new Cartao(new Objetos.Limites());
+        setState(new Passeando(this));
     }
 
-    public void atualizarEstado() {
-        boolean vaiComprar = ThreadLocalRandom.current().nextBoolean();
-        if (vaiComprar) {
-            setState(new Comprando(this));
-        } else {
-            setState(new Passeando(this));
+    public State getCurrentState() {
+        return currentState;
+    }
+
+    public void setState(State newState) {
+        if (newState == null) {
+            throw new IllegalArgumentException("O estado do cliente não pode ser nulo.");
         }
-    }
 
-    private void setState(State newState) {
         if (currentState != null) {
             currentState.leave();
         }
-        this.currentState = newState;
+
+        currentState = newState;
         currentState.enter();
     }
 
@@ -41,16 +43,20 @@ public class Cliente {
 
         if (currentState instanceof Comprando) {
             Comprando estadoComprando = (Comprando) currentState;
-            currentState.execute();
-            Produto produto = estadoComprando.getProduto();
+            estadoComprando.execute();
+            Produto produtoComprado = estadoComprando.getProduto();
             atualizarEstado();
-            return produto;
+            return produtoComprado;
         }
 
-        throw new IllegalStateException("O cliente está em um estado não reconhecido.");
+        throw new IllegalStateException("O estado atual do cliente não é reconhecido.");
     }
 
-    public State getCurrentState() {
-        return currentState;
+    public void atualizarEstado() {
+        if (ThreadLocalRandom.current().nextBoolean()) {
+            setState(new Comprando(this));
+        } else {
+            setState(new Passeando(this));
+        }
     }
 }
