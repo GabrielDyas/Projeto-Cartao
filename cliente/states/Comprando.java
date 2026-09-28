@@ -18,7 +18,7 @@ public class Comprando extends AbstractState {
         super(cliente);
     }
 
-    // Entender o que tá acontecendo
+    // Entender o que tá acontecendo e passar para dentro do construtor do produto, para que ele seja criado no momento da criação do estado Comprando.
     public Produto criarProduto() {
         List<Produto> produtos = new ArrayList<>();
         List<String> linhas;
