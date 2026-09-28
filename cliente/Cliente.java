@@ -7,8 +7,8 @@ import Objetos.State;
 import cliente.states.*;
 
 public class Cliente {
-    public State currentState;
-    public Cartao cartao; 
+    private State currentState;
+    public Cartao cartao;
 
     public Cliente() {
         this.cartao = new Cartao(new Objetos.Limites());
@@ -16,45 +16,41 @@ public class Cliente {
     }
 
     public void atualizarEstado() {
-    if (currentState instanceof Passeando) {
-        boolean vaiComprarbool = ThreadLocalRandom.current().nextBoolean();
-
-        if (vaiComprarbool) {
-            Produto produto = comprar();
-            System.out.printf("Cliente comprou: %s - R$ %.2f%n",
-                    produto.nome, produto.valor);
+        boolean vaiComprar = ThreadLocalRandom.current().nextBoolean();
+        if (vaiComprar) {
+            setState(new Comprando(this));
         } else {
-            execute();
+            setState(new Passeando(this));
         }
-
-        return;
     }
 
-    execute();
-}
-
-    public void setState(State newState) {
+    private void setState(State newState) {
         if (currentState != null) {
-            currentState.leave(); // Executa a lógica de saída do estado atual
+            currentState.leave();
         }
         this.currentState = newState;
-        if (currentState != null) {
-            currentState.enter(); // Executa a lógica de entrada do novo estado
-        }
+        currentState.enter();
     }
 
-    public void execute() {
-        if (currentState != null) {
+    public Produto execute() {
+        if (currentState instanceof Passeando) {
             currentState.execute();
+            atualizarEstado();
+            return null;
         }
+
+        if (currentState instanceof Comprando) {
+            Comprando estadoComprando = (Comprando) currentState;
+            currentState.execute();
+            Produto produto = estadoComprando.getProduto();
+            atualizarEstado();
+            return produto;
+        }
+
+        throw new IllegalStateException("O cliente está em um estado não reconhecido.");
     }
 
-    public Produto comprar() {
-        Comprando estadoComprando = new Comprando(this);
-        setState(estadoComprando);
-        Produto produto = Produto.criarProduto();
-        estadoComprando.execute();
-        return produto;
+    public State getCurrentState() {
+        return currentState;
     }
-
 }

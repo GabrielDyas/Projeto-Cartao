@@ -22,8 +22,7 @@ public class Comprando extends AbstractState {
 
     @Override
     public void execute() {
-        // Lógica de execução do estado Comprando
-        System.out.println("Executando o estado Comprando");
+        produto = Produto.criarProduto();
     }
 
     @Override
