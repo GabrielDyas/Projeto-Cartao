@@ -20,6 +20,10 @@ public class Instituicao {
         this.state.enter(); 
     }
 
+    public void execute() {
+        this.state.execute();
+    }
+
     public Produto getAnaliseCompra(){
         return AnaliseCompra;
     }
@@ -27,5 +31,7 @@ public class Instituicao {
     public Cliente getCliente() {
         return cliente;
     }
+    
+    
 
 }

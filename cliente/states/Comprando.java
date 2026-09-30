@@ -2,80 +2,33 @@ package cliente.states;
 
 import Objetos.Produto;
 import cliente.Cliente;
-// Importações necessárias para ler o arquivo produtos.txt
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
+
 
 public class Comprando extends AbstractState {
-    private Produto produto;
+    public Produto produto;
 
     public Comprando(Cliente cliente) {
         super(cliente);
     }
 
-    // Entender o que tá acontecendo e passar para dentro do construtor do produto, para que ele seja criado no momento da criação do estado Comprando.
-    public Produto criarProduto() {
-        List<Produto> produtos = new ArrayList<>();
-        List<String> linhas;
-        try {
-            linhas = Files.readAllLines(Paths.get("produtos.txt"), StandardCharsets.UTF_8);
-        } catch (IOException e) {
-            throw new IllegalStateException("Não foi possível ler o arquivo produtos.txt.", e);
-        }
-
-        for (int i = 0; i < linhas.size(); i++) {
-            String linha = linhas.get(i).trim();
-            if (linha.isEmpty()) {
-                continue;
-            }
-
-            int separador = linha.lastIndexOf(',');
-            if (separador < 1 || separador == linha.length() - 1) {
-                throw new IllegalStateException("Formato inválido em produtos.txt, linha " + (i + 1) + ".");
-            }
-
-            String nome = linha.substring(0, separador).trim();
-            String valorTexto = linha.substring(separador + 1).trim();
-            try {
-                produtos.add(new Produto(nome, Double.parseDouble(valorTexto)));
-            } catch (NumberFormatException e) {
-                throw new IllegalStateException("Preço inválido em produtos.txt, linha " + (i + 1) + ".", e);
-            }
-        }
-
-        if (produtos.isEmpty()) {
-            throw new IllegalStateException("O arquivo produtos.txt não contém produtos.");
-        }
-
-        produto = produtos.get(ThreadLocalRandom.current().nextInt(produtos.size()));
-        return produto;
-    }
-
-    public Produto getProduto() {
-        return produto;
-    }
-
     @Override 
     public void enter() {
         // Lógica de entrada no estado Comprando
-        System.out.println("Entrando no estado Comprando");
+        System.out.println("Analisando produto para compra...");
     }
 
     @Override
     public void execute() {
         // Lógica de execução do estado Comprando
-        System.out.println("Executando o estado Comprando");
+        context.cartao.compra = context.cartao.getCompra();
+        System.out.printf("Cliente está comprando: %s no valor de R$%.2f\n", context.cartao.compra.nome, context.cartao.compra.valor);
     }
 
     @Override
     public void leave() {
         // Lógica de saída do estado Comprando
-        System.out.println("Saindo do estado Comprando");
+        System.out.printf("Esperando resposta da instituição da compra: %s\n", context.cartao.compra != null ? context.cartao.compra.nome : "Nenhum");
+        context.cartao.compra = null; // Limpa a compra após sair do estado 
     }
     
 }

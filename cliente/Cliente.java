@@ -1,16 +1,18 @@
 package cliente;
 import Objetos.Cartao;
-import Objetos.Produto;
 import Objetos.State;
 import cliente.states.*;
+import instituicao.Instituicao;
+import java.util.Random;
 
 public class Cliente {
     public State currentState;
-    public Cartao cartao; 
+    public Cartao cartao;
+    public Instituicao instituicao;
 
     public Cliente() {
         this.cartao = new Cartao(new Objetos.Limites());
-        this.setState(new Passeando(this));
+        setState(new Passeando(this));
     }
 
     public void setState(State newState) {
@@ -29,11 +31,12 @@ public class Cliente {
         }
     }
 
-    public Produto comprar() {
-        Comprando estadoComprando = new Comprando(this);
-        setState(estadoComprando);
-        Produto produto = estadoComprando.criarProduto();
-        estadoComprando.execute();
-        return produto;
+    public boolean vaiComprar() {
+        int chance = new Random().nextInt(100);
+        return chance < 50; // 50% de chance de comprar
+    }
+
+    public void logCliente() {
+        System.out.printf("Limite disponível: R$%.2f\n", cartao.getLimite());
     }
 }

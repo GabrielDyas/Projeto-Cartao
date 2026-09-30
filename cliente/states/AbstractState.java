@@ -3,10 +3,10 @@ import Objetos.State;
 import cliente.Cliente;
 
 public abstract class AbstractState implements State {
-    protected Cliente cliente;
+    protected Cliente context;
 
     public AbstractState(Cliente cliente) {
-        this.cliente = cliente;
+        this.context = cliente;
     }
 
     @Override

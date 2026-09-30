@@ -12,14 +12,11 @@ public class Cartao {
     }
        
     public float getLimite(){
-        float limiti = 0;
-        limiti = limites.LimiteDisponivel;
-        return limiti;
+        return limites.LimiteDisponivel;
     }
 
-    //fazer alguma forma para aleatorizar isso, com base em uma lista de produtos
     public Produto getCompra() {
-        return compra = new Produto("Produto Exemplo", 100.0);
+        
+        return compra = Produto.CriarProduto();
     }
-
 }
