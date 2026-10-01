@@ -9,7 +9,7 @@ public class Analisando extends AbstractState {
 
     @Override 
     public void enter() {
-        System.out.printf("Iniciando análise de compra %s no valor de R$%.2f...\n", context.getCliente().cartao.getCompra().nome, context.getCliente().cartao.getCompra().valor);
+        System.out.printf("Iniciando análise de compra %s no valor de R$%.2f...\n", context.getCliente().cartao.compra.nome, context.getCliente().cartao.compra.valor);
         context.AnaliseCompra = context.getCliente().cartao.compra; // Armazena a compra que está sendo analisada
     }
 
@@ -31,8 +31,6 @@ public class Analisando extends AbstractState {
 
     @Override 
     public void leave() {
-        // Lógica de saída do estado de análise
-        System.out.println("...");
     }
     
 }

@@ -19,4 +19,12 @@ public class Cartao {
     public Produto getCompra() {
         return compra = Produto.CriarProduto();
     }
+
+    public void FechamentoFatura() {
+        System.out.println("Fatura fechada e limite restabelecido!");
+        System.out.println("Sitação das compras:");
+        for (Produto produto : this.Fatura) {
+            System.out.printf("Compra: %s | Valor: R$%.2f | Situação: %s\n", produto.nome, produto.valor, produto.situacao ? "Aprovada" : "Rejeitada");
+        }
+    }
 }
