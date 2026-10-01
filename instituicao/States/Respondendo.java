@@ -1,7 +1,13 @@
 package instituicao.States;
 
+import instituicao.Instituicao;
 
 public class Respondendo extends AbstractState {
+    
+    public Respondendo(Instituicao context) {
+        super(context); // Envia a instituição para o AbstractState
+    }
+
     @Override 
     public void enter() {
         // Lógica de entrada no estado de resposta

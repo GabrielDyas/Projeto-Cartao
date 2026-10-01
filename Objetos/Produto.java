@@ -23,9 +23,7 @@ public class Produto {
         List<String> linhas;
 
         try {
-            // Nota: Certifique-se de que o caminho do arquivo está correto (ex: "_produtos.txt" ou "produtos.txt")
-            linhas = Files.readAllLines(Paths.get("_produtos.txt"), StandardCharsets.UTF_8);
-        } catch (IOException e) {
+            linhas = Files.readAllLines(Paths.get("Objetos/_produtos.txt"), StandardCharsets.UTF_8);        } catch (IOException e) {
             throw new IllegalStateException("Não foi possível ler o arquivo produtos.txt.", e);
         }
 

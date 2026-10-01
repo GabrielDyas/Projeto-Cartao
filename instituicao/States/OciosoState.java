@@ -1,6 +1,13 @@
 package instituicao.States;
 
+import instituicao.Instituicao;
+
 public class OciosoState extends AbstractState {
+    
+    public OciosoState(Instituicao context) {
+        super(context); // Envia a instituição para o AbstractState
+    }
+
     @Override 
     public void enter() {
        System.out.println("Sem solicitações pendentes.");

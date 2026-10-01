@@ -1,10 +1,16 @@
 package instituicao.States;
+import instituicao.Instituicao;
 
 public class Analisando extends AbstractState {
+
+    public Analisando(Instituicao context) {
+        super(context); // Envia a instituição para o AbstractState
+    }
+
     @Override 
     public void enter() {
         System.out.printf("Iniciando análise de compra %s no valor de R$%.2f...\n", context.getCliente().cartao.getCompra().nome, context.getCliente().cartao.getCompra().valor);
-        context.AnaliseCompra = context.getCliente().cartao.getCompra();
+        context.AnaliseCompra = context.getCliente().cartao.compra; // Armazena a compra que está sendo analisada
     }
 
     @Override
