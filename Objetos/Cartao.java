@@ -1,9 +1,10 @@
 package Objetos;
 import java.util.List;
+import java.util.ArrayList; 
 
 public class Cartao {
     public Limites limites;
-    public List<Produto> Fatura;
+    public List<Produto> Fatura = new ArrayList<>();;
     public Produto compra;
 
 
@@ -16,7 +17,6 @@ public class Cartao {
     }
 
     public Produto getCompra() {
-        
         return compra = Produto.CriarProduto();
     }
 }

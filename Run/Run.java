@@ -1,6 +1,7 @@
 package Run;
 import cliente.Cliente;
 import instituicao.Instituicao;
+import instituicao.States.*;
 
 public class Run {
     public static void main(String[] args) {
@@ -26,12 +27,17 @@ public class Run {
                 cliente.execute();
             }
             System.out.println("______");
-            if (cliente.currentState instanceof cliente.states.Comprando) {
+
+            if (instituicao.currentState instanceof instituicao.States.Analisando) {
+                instituicao.setState(new Respondendo(instituicao));
+                instituicao.execute();
+            }
+            if (cliente.cartao.compra != null) {
                 // Simula a análise da compra pela instituição
-                instituicao.setState(new instituicao.States.Analisando());
+                instituicao.setState(new Analisando(instituicao));
                 instituicao.execute();
             } else {
-                instituicao.setState(new instituicao.States.OciosoState());
+                instituicao.setState(new OciosoState(instituicao));
                 instituicao.execute();
             }
         }

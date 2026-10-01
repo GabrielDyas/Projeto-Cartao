@@ -5,6 +5,10 @@ import instituicao.Instituicao;
 public abstract class AbstractState implements State {
     protected Instituicao context;
 
+    public AbstractState(Instituicao instituicao) {
+        this.context = instituicao;
+    }
+
     @Override
     public void enter() {
         // Implementação padrão opcional
