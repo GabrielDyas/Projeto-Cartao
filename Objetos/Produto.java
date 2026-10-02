@@ -1,4 +1,5 @@
 package Objetos;
+import java.time.LocalDate;
 // Importações necessárias para ler o arquivo produtos.txt
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -11,13 +12,16 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Produto {
     public String nome;
     public double valor;
+    public LocalDate dataCompra;
     public boolean situacao = false;
 
     public Produto(String nome, double valor) {
         this.nome = nome;
         this.valor = valor;
+        this.dataCompra = ControleDeTempo.getDia();
+
     }
-    
+    //leitura do arquivo produtos.txt e criação de um produto aleatório
     public static Produto CriarProduto() {
         List<Produto> produtos = new ArrayList<>();
         List<String> linhas;

@@ -1,4 +1,20 @@
-Celular Xiaomi, 3000
-Bola de futebol, 35
-Pao, 23
-PC Gamer Pichau, 6000
+Fone de ouvido Bluetooth, 150
+Teclado mecânico gamer, 250
+Mouse sem fio, 80
+Monitor LED 24 polegadas, 900
+Cadeira Gamer reclinável, 1200
+Tênis de corrida, 280
+Mochila para notebook, 120
+Garrafa térmica inox, 70
+Livro de Programação Java, 95
+Cafeteira elétrica, 180
+Caixa de som portátil, 220
+Smartwatch esportivo, 350
+Microfone condensador USB, 300
+Lâmpada inteligente Wi-Fi, 60
+Roteador Wi-Fi 6, 450
+SSD NVMe 1TB, 500
+Placa de vídeo RTX, 3500
+Controle para videogame, 250
+Camisa de time de futebol, 200
+Óculos de sol, 150

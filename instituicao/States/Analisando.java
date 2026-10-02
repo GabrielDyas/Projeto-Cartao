@@ -4,7 +4,7 @@ import instituicao.Instituicao;
 public class Analisando extends AbstractState {
 
     public Analisando(Instituicao context) {
-        super(context); // Envia a instituição para o AbstractState
+        super(context); 
     }
 
     @Override 

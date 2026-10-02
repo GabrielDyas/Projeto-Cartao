@@ -2,10 +2,10 @@ package instituicao.States;
 
 import instituicao.Instituicao;
 
-public class OciosoState extends AbstractState {
+public class Ocioso extends AbstractState {
     
-    public OciosoState(Instituicao context) {
-        super(context); // Envia a instituição para o AbstractState
+    public Ocioso(Instituicao context) {
+        super(context); 
     }
 
     @Override 

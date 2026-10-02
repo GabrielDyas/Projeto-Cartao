@@ -10,19 +10,16 @@ public class Passeando extends AbstractState {
 
     @Override 
     public void enter() {
-        // Lógica de entrada no estado Passeando
-        System.out.println("Cliente está entrando no estado passeando");
+        System.out.println("Cliente está saindo para passear.");
     }
 
     @Override
     public void execute() {
-        //Lógica de execução do estado Passeando
         System.out.println("Cliente está passeando");
     }
     
     @Override
     public void leave() {
-        // Lógica de saída do estado Passeando
         System.out.println("Cliente não está mais passeando");
     }
 }

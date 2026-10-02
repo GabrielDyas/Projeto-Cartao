@@ -10,17 +10,17 @@ public class Instituicao {
 
     public Instituicao(String nome, Cliente cliente) {
 
-        this.currentState = new OciosoState(this); 
+        this.currentState = new Ocioso(this); 
         this.cliente = cliente;
     }
 
     public void setState(State newState) {
         if (currentState != null) {
-            currentState.leave(); // Executa a lógica de saída do estado atual
+            currentState.leave();
         }
         this.currentState = newState;
         if (currentState != null) {
-            currentState.enter(); // Executa a lógica de entrada do novo estado
+            currentState.enter(); 
         }
     }
 
@@ -36,6 +36,7 @@ public class Instituicao {
         return cliente;
     }
     
+
     
 
 }

@@ -1,7 +1,6 @@
 package cliente;
 import Objetos.Cartao;
 import Objetos.State;
-import cliente.states.*;
 import instituicao.Instituicao;
 import java.util.Random;
 
@@ -12,16 +11,15 @@ public class Cliente {
 
     public Cliente() {
         this.cartao = new Cartao(new Objetos.Limites());
-        setState(new Passeando(this));
     }
 
     public void setState(State newState) {
         if (currentState != null) {
-            currentState.leave(); // Executa a lógica de saída do estado atual
+            currentState.leave(); 
         }
         this.currentState = newState;
         if (currentState != null) {
-            currentState.enter(); // Executa a lógica de entrada do novo estado
+            currentState.enter(); 
         }
     }
 
