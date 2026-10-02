@@ -29,7 +29,7 @@ public class Run {
             }
 
             System.out.println("--------------");
-
+            /* incluir para dentro do padrão state */
             // Lógica de interação do cliente
             cliente.logCliente();
             if(cliente.vaiComprar()) {
@@ -49,6 +49,7 @@ public class Run {
 
             System.out.println("--------------");
 
+            /* incluir para dentro do padrão state */
             // Lógica de interação com a instituição
             if (instituicao.currentState instanceof Analisando) {
                 instituicao.setState(new Respondendo(instituicao));
