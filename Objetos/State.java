@@ -1,7 +1,7 @@
 package Objetos;
 
-public interface State {
-    void enter();   // Executado ao entrar no estado
-    void execute(); // Executado a cada ciclo
-    void leave();   // Executado ao sair do estado
+public interface State<T> {
+    void enter(T context);          
+    void execute(T context); 
+    void leave(T context);           
 }

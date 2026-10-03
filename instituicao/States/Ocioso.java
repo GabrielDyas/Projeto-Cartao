@@ -1,25 +1,31 @@
 package instituicao.States;
-
+import Objetos.AbstractState;
 import instituicao.Instituicao;
 
-public class Ocioso extends AbstractState {
+public class Ocioso extends AbstractState<Instituicao> {
     
     public Ocioso(Instituicao context) {
         super(context); 
     }
 
     @Override 
-    public void enter() {
-       System.out.println("Sem solicitações pendentes.");
+    public void enter(Instituicao context) {
+        
+        if (context.analisandoCompra) {
+            context.setState(new Respondendo(context));
+        } 
+        else if (context.getCliente().cartao.compra != null) {
+            context.setState(new Analisando(context));
+        }
     }
 
     @Override
-    public void execute() {
-        System.out.println("Aguardando novas solicitações.");
+    public void execute(Instituicao context) {    
+        System.out.println("Instituição está ociosa.");   
     }
 
     @Override 
-    public void leave() {
+    public void leave(Instituicao context) {
         System.out.println("Solicitação recebida, iniciando análise.");
     }
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Cartao {
     public Limites limites;
+    public final int FECHAMENTO_FATURA = 5;
     public List<Produto> Fatura = new ArrayList<>();;
     public Produto compra;
 

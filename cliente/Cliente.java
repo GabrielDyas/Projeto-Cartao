@@ -5,27 +5,28 @@ import instituicao.Instituicao;
 import java.util.Random;
 
 public class Cliente {
-    public State currentState;
+    public State<Cliente> currentState;
     public Cartao cartao;
+    public boolean comprou;
     public Instituicao instituicao;
 
     public Cliente() {
         this.cartao = new Cartao(new Objetos.Limites());
     }
 
-    public void setState(State newState) {
+    public void setState(State<Cliente> newState) {
         if (currentState != null) {
-            currentState.leave(); 
+            currentState.leave(this); 
         }
         this.currentState = newState;
         if (currentState != null) {
-            currentState.enter(); 
+            currentState.enter(this); 
         }
     }
 
     public void execute() {
         if (currentState != null) {
-            currentState.execute();
+            currentState.execute(this);
         }
     }
 
