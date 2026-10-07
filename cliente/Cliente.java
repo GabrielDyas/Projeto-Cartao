@@ -36,6 +36,6 @@ public class Cliente {
     }
 
     public void logCliente() {
-        System.out.printf("Limite disponível: R$%.2f\n", cartao.getLimite());
+        System.out.printf("Limite disponível: R$%.2f\n", cartao.limites.LimiteDisponivel);
     }
 }

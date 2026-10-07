@@ -12,10 +12,6 @@ public class Cartao {
     public Cartao(Limites limites) {
         this.limites = limites;
     }
-       
-    public float getLimite(){
-        return limites.LimiteDisponivel;
-    }
 
     public Produto getCompra() {
         return compra = Produto.CriarProduto();

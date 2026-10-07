@@ -30,7 +30,6 @@ public class Respondendo extends AbstractState<Instituicao> {
             context.setState(new Ocioso(context));
             context.execute();
         }
-
     }
 
     @Override 
