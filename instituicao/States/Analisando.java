@@ -9,23 +9,23 @@ public class Analisando extends AbstractState<Instituicao> {
 
     @Override 
     public void enter(Instituicao context) {
-        System.out.printf("Iniciando análise de compra %s no valor de R$%.2f...\n", context.getCliente().cartao.compra.nome, context.getCliente().cartao.compra.valor);
-        context.AnaliseCompra = context.getCliente().cartao.compra; // Armazena a compra que está sendo analisada
+        System.out.printf("Iniciando análise de compra %s no valor de R$%.2f...\n", context.cliente.cartao.compra.nome, context.cliente.cartao.compra.valor);
+        context.AnaliseCompra = context.cliente.cartao.compra; // Armazena a compra que está sendo analisada
         context.analisandoCompra = true; // Indica que a análise está em andamento
     }
 
     @Override
     public void execute(Instituicao context) {
         System.err.println("Analisando compra...");
-        if(context.getCliente().cartao.getLimite() < context.AnaliseCompra.valor) {
+        if(context.cliente.cartao.getLimite() < context.AnaliseCompra.valor) {
             // Lógica para quando o limite é insuficiente
             context.AnaliseCompra.situacao = false;
-            context.getCliente().cartao.Fatura.add(context.AnaliseCompra);
+            context.cliente.cartao.Fatura.add(context.AnaliseCompra);
         } else {
             // Lógica para quando o limite é suficiente
             context.AnaliseCompra.situacao = true;
-            context.getCliente().cartao.Fatura.add(context.AnaliseCompra);
-            context.getCliente().cartao.limites.LimiteDisponivel -= context.AnaliseCompra.valor;
+            context.cliente.cartao.Fatura.add(context.AnaliseCompra);
+            context.cliente.cartao.limites.LimiteDisponivel -= context.AnaliseCompra.valor;
         }
     }
 

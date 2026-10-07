@@ -16,14 +16,14 @@ public class Respondendo extends AbstractState<Instituicao> {
     @Override
     public void execute(Instituicao context) {
 
-        if (context.getAnaliseCompra().situacao) {
-            System.out.printf( "Compra de(a) %s no valor de R$%.2f aprovada." , context.getAnaliseCompra().nome, context.getAnaliseCompra().valor );
+        if (context.AnaliseCompra.situacao) {
+            System.out.printf( "Compra de(a) %s no valor de R$%.2f aprovada." , context.AnaliseCompra.nome, context.AnaliseCompra.valor );
 
         } else {
-            System.out.printf( "Compra de(a) %s no valor de R$%.2f negada." , context.getAnaliseCompra().nome, context.getAnaliseCompra().valor );
+            System.out.printf( "Compra de(a) %s no valor de R$%.2f negada." , context.AnaliseCompra.nome, context.AnaliseCompra.valor );
         }
 
-        if(context.getCliente().cartao.compra != null) {
+        if(context.cliente.cartao.compra != null) {
             context.setState(new Analisando(context));
             context.execute(); // Executa a análise da próxima compra
         } else {

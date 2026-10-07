@@ -14,7 +14,7 @@ public class Ocioso extends AbstractState<Instituicao> {
         if (context.analisandoCompra) {
             context.setState(new Respondendo(context));
         } 
-        else if (context.getCliente().cartao.compra != null) {
+        else if (context.cliente.cartao.compra != null) {
             context.setState(new Analisando(context));
         }
     }

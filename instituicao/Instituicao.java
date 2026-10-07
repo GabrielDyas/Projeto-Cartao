@@ -9,7 +9,6 @@ public class Instituicao {
     public Cliente cliente;
 
     public Instituicao(String nome, Cliente cliente) {
-
         this.currentState = null; 
         this.cliente = cliente;
     }
@@ -29,16 +28,4 @@ public class Instituicao {
     public void execute() {
         this.currentState.execute(this);
     }
-
-    public Produto getAnaliseCompra(){
-        return AnaliseCompra;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-    
-
-    
-
 }
