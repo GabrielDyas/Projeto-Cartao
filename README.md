@@ -54,3 +54,11 @@ java -cp ..\out Run.Run
 (Se os acentos aparecerem errados no console do Windows, rode `chcp 65001` antes.)
 
 Também é possível abrir a pasta `src` no VS Code/IntelliJ e executar `Run.java`.
+
+## Regras principais
+
+- **Cliente:** a cada dia entra em *Passeando*; se `nextInt(100) < 50` (50%) vai para *Comprando*, onde sorteia um produto de `_produtos.txt` e o deixa como compra pendente. No dia seguinte volta a *Passeando*.
+- **Instituição:** *Ocioso* → *Analisando* quando há compra pendente; em *Analisando* a compra é **negada** se `limiteDisponível < valor` e **aprovada** caso contrário (debitando o limite, inicial R$ 10.000); no ciclo seguinte *Respondendo* informa o resultado e volta a *Analisando* (nova compra) ou *Ocioso*.
+- No dia 5 de cada mês (`Cartao.FECHAMENTO_FATURA`) o cliente fecha a fatura: a lista de compras com a situação de cada uma é impressa e a fatura é esvaziada.
+
+Detalhes completos (diagramas, tabelas de regras, variáveis e limitações) em [`docs/Projeto-Cartao-Documentacao.pdf`](docs/Projeto-Cartao-Documentacao.pdf).
