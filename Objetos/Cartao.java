@@ -24,5 +24,6 @@ public class Cartao {
             System.out.printf("Compra: %s | Valor: R$%.2f | Situação: %s\n", produto.nome, produto.valor, produto.situacao ? "Aprovada" : "Rejeitada");
         }
         this.Fatura.clear();
+        this.limites.LimiteDisponivel = this.limites.LIMITE_TOTAL;
     }
 }
