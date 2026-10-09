@@ -26,6 +26,5 @@ public class Ocioso extends AbstractState<Instituicao> {
 
     @Override 
     public void leave(Instituicao context) {
-        System.out.println("Solicitação recebida, iniciando análise.");
     }
 }

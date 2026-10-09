@@ -8,7 +8,7 @@ public class Run {
         Cliente cliente = new Cliente();
         Instituicao instituicao = new Instituicao("Banco", cliente);
         cliente.instituicao = instituicao;
-        int contador = 6;
+        int contador = 30;
 
         // Simulação de interações do cliente com a instituição
         while (true) {
