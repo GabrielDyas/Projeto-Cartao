@@ -61,4 +61,4 @@ Também é possível abrir a pasta `src` no VS Code/IntelliJ e executar `Run.jav
 - **Instituição:** *Ocioso* → *Analisando* quando há compra pendente; em *Analisando* a compra é **negada** se `limiteDisponível < valor` e **aprovada** caso contrário (debitando o limite, inicial R$ 10.000); no ciclo seguinte *Respondendo* informa o resultado e volta a *Analisando* (nova compra) ou *Ocioso*.
 - No dia 5 de cada mês (`Cartao.FECHAMENTO_FATURA`) o cliente fecha a fatura: a lista de compras com a situação de cada uma é impressa e a fatura é esvaziada.
 
-Detalhes completos (diagramas, tabelas de regras, variáveis e limitações) em [`docs/Projeto-Cartao-Documentacao.pdf`](docs/Projeto-Cartao-Documentacao.pdf).
+Detalhes completos (diagramas, tabelas de regras, variáveis e limitações) em [`Projeto-Cartao-Documentacao.pdf`](https://github.com/GabrielDyas/Projeto-Cartao/blob/main/Máquina%20de%20Estados%20-%20Cartão-cliente%20V1.pdf).
