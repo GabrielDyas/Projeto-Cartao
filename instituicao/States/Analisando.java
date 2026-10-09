@@ -16,7 +16,7 @@ public class Analisando extends AbstractState<Instituicao> {
 
     @Override
     public void execute(Instituicao context) {
-        System.err.println("Analisando compra...");
+        System.out.println("Analisando compra...");
         if(context.cliente.cartao.limites.LimiteDisponivel < context.AnaliseCompra.valor) {
             // Lógica para quando o limite é insuficiente
             context.AnaliseCompra.situacao = false;
